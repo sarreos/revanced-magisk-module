@@ -51,18 +51,6 @@ INS=true
 if BASEPATH=$(pmex path "$PKG_NAME"); then
 	echo >&2 "'$BASEPATH'"
 	BASEPATH=${BASEPATH##*:} BASEPATH=${BASEPATH%/*}
-	if [ "${BASEPATH:1:4}" != data ]; then
-		ui_print "* Detected $PKG_NAME as a system app"
-		SCNM="/data/adb/post-fs-data.d/$PKG_NAME-uninstall.sh"
-		mkdir -p /data/adb/post-fs-data.d
-		echo "mount -t tmpfs none $BASEPATH" >"$SCNM"
-		chmod +x "$SCNM"
-		ui_print "* Created the uninstall script."
-		ui_print ""
-		ui_print "* Reboot and reflash the module!"
-		abort
-	fi
-
 	VERSION=$(dumpsys package "$PKG_NAME" 2>&1 | grep -m1 versionName=) VERSION="${VERSION#*=}"
 	if [ "$VERSION" ] && [ "$VERSION" = "$PKG_VER" ]; then
 		ui_print "* $PKG_NAME is up-to-date ($VERSION)"
