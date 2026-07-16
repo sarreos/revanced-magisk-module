@@ -42,6 +42,8 @@ if BASEPATH=$(get_basepath); then
 		    echo "nm w $BASEPATH" > "$SCNM"
 		else
 		    echo "mount -t tmpfs none $BASEPATH" >"$SCNM"
+		fi
+		chmod +x "$SCNM"
 		ui_print "* Created the uninstall script."
 		ui_print ""
 		ui_print "* Reboot and reflash the module!"
