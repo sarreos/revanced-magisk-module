@@ -38,8 +38,10 @@ if BASEPATH=$(get_basepath); then
 		ui_print "* Detected $PKG_NAME as a system app"
 		SCNM="/data/adb/post-fs-data.d/$PKG_NAME-uninstall.sh"
 		mkdir -p /data/adb/post-fs-data.d
-		echo "mount -t tmpfs none $BASEPATH" >"$SCNM"
-		chmod +x "$SCNM"
+		if command -v nm >/dev/null 2>&1; then
+		    echo "nm w $BASEPATH" > "$SCNM"
+		else
+		    echo "mount -t tmpfs none $BASEPATH" >"$SCNM"
 		ui_print "* Created the uninstall script."
 		ui_print ""
 		ui_print "* Reboot and reflash the module!"
