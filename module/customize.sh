@@ -36,7 +36,7 @@ INS=true
 if BASEPATH=$(get_basepath); then
 	if [ "${BASEPATH:1:4}" != data ]; then
 		ui_print "* Detected $PKG_NAME as a system app"
-		SCNM="/data/adb/post-fs-data.d/$PKG_NAME-uninstall.sh"
+		SCNM="/data/adb/post-mount.d/$PKG_NAME-uninstall.sh"
 		mkdir -p /data/adb/post-fs-data.d
 		if command -v nm >/dev/null 2>&1; then
 		    echo "nm w $BASEPATH" > "$SCNM"
