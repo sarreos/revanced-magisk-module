@@ -1,13 +1,14 @@
-enable-module-update = true 
+enable-module-update = true
 parallel-jobs = 1
 
-
-[YouTube-Morphe] 
-app-name = "YouTube" 
-patches-source = "MorpheApp/morphe-patches" cli-source = "MorpheApp/morphe-cli" 
-rv-brand = "Morphe" 
-build-mode = "module" 
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube" 
-uptodown-dlurl = "https://youtube.en.uptodown.com/android" archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube" 
-enable-update-checks = true 
+[YouTube-Morphe]
+app-name = "YouTube"
+patches-source = "MorpheApp/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+rv-brand = "Morphe"
+build-mode = "module"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+enable-update-checks = true
 excluded-patches = "'Custom branding'"
